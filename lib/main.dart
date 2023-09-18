@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_movies/application/details/details_bloc.dart';
 import 'package:my_movies/application/movies/movies_bloc.dart';
 import 'package:my_movies/core/colors.dart';
 import 'package:my_movies/domain/core/dependency_injection/injectable.dart';
@@ -20,6 +21,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => getIt<MoviesBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<DetailsBloc>(),
         ),
       ],
       child: MaterialApp(

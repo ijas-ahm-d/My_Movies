@@ -6,13 +6,13 @@ class MoviesState with _$MoviesState {
     required List<MovieData> moviesList,
     required bool isLoading,
     required bool hasError,
-    
+    required int currentPage,
   }) = _Initial;
-  
+
   factory MoviesState.initial() => const MoviesState(
         moviesList: [],
         isLoading: false,
         hasError: false,
-       
+        currentPage: 1,
       );
 }

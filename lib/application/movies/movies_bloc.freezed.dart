@@ -19,32 +19,38 @@ mixin _$MoviesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeMovies,
+    required TResult Function(int newPageIndex) changePageIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeMovies,
+    TResult? Function(int newPageIndex)? changePageIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeMovies,
+    TResult Function(int newPageIndex)? changePageIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeMovies value) getHomeMovies,
+    required TResult Function(ChangePageIndex value) changePageIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeMovies value)? getHomeMovies,
+    TResult? Function(ChangePageIndex value)? changePageIndex,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeMovies value)? getHomeMovies,
+    TResult Function(ChangePageIndex value)? changePageIndex,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$GetHomeMovies with DiagnosticableTreeMixin implements GetHomeMovies {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeMovies,
+    required TResult Function(int newPageIndex) changePageIndex,
   }) {
     return getHomeMovies();
   }
@@ -121,6 +128,7 @@ class _$GetHomeMovies with DiagnosticableTreeMixin implements GetHomeMovies {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getHomeMovies,
+    TResult? Function(int newPageIndex)? changePageIndex,
   }) {
     return getHomeMovies?.call();
   }
@@ -129,6 +137,7 @@ class _$GetHomeMovies with DiagnosticableTreeMixin implements GetHomeMovies {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeMovies,
+    TResult Function(int newPageIndex)? changePageIndex,
     required TResult orElse(),
   }) {
     if (getHomeMovies != null) {
@@ -141,6 +150,7 @@ class _$GetHomeMovies with DiagnosticableTreeMixin implements GetHomeMovies {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetHomeMovies value) getHomeMovies,
+    required TResult Function(ChangePageIndex value) changePageIndex,
   }) {
     return getHomeMovies(this);
   }
@@ -149,6 +159,7 @@ class _$GetHomeMovies with DiagnosticableTreeMixin implements GetHomeMovies {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetHomeMovies value)? getHomeMovies,
+    TResult? Function(ChangePageIndex value)? changePageIndex,
   }) {
     return getHomeMovies?.call(this);
   }
@@ -157,6 +168,7 @@ class _$GetHomeMovies with DiagnosticableTreeMixin implements GetHomeMovies {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetHomeMovies value)? getHomeMovies,
+    TResult Function(ChangePageIndex value)? changePageIndex,
     required TResult orElse(),
   }) {
     if (getHomeMovies != null) {
@@ -171,10 +183,155 @@ abstract class GetHomeMovies implements MoviesEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangePageIndexCopyWith<$Res> {
+  factory _$$ChangePageIndexCopyWith(
+          _$ChangePageIndex value, $Res Function(_$ChangePageIndex) then) =
+      __$$ChangePageIndexCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int newPageIndex});
+}
+
+/// @nodoc
+class __$$ChangePageIndexCopyWithImpl<$Res>
+    extends _$MoviesEventCopyWithImpl<$Res, _$ChangePageIndex>
+    implements _$$ChangePageIndexCopyWith<$Res> {
+  __$$ChangePageIndexCopyWithImpl(
+      _$ChangePageIndex _value, $Res Function(_$ChangePageIndex) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newPageIndex = null,
+  }) {
+    return _then(_$ChangePageIndex(
+      null == newPageIndex
+          ? _value.newPageIndex
+          : newPageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangePageIndex
+    with DiagnosticableTreeMixin
+    implements ChangePageIndex {
+  const _$ChangePageIndex(this.newPageIndex);
+
+  @override
+  final int newPageIndex;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MoviesEvent.changePageIndex(newPageIndex: $newPageIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'MoviesEvent.changePageIndex'))
+      ..add(DiagnosticsProperty('newPageIndex', newPageIndex));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePageIndex &&
+            (identical(other.newPageIndex, newPageIndex) ||
+                other.newPageIndex == newPageIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newPageIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePageIndexCopyWith<_$ChangePageIndex> get copyWith =>
+      __$$ChangePageIndexCopyWithImpl<_$ChangePageIndex>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getHomeMovies,
+    required TResult Function(int newPageIndex) changePageIndex,
+  }) {
+    return changePageIndex(newPageIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getHomeMovies,
+    TResult? Function(int newPageIndex)? changePageIndex,
+  }) {
+    return changePageIndex?.call(newPageIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getHomeMovies,
+    TResult Function(int newPageIndex)? changePageIndex,
+    required TResult orElse(),
+  }) {
+    if (changePageIndex != null) {
+      return changePageIndex(newPageIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetHomeMovies value) getHomeMovies,
+    required TResult Function(ChangePageIndex value) changePageIndex,
+  }) {
+    return changePageIndex(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetHomeMovies value)? getHomeMovies,
+    TResult? Function(ChangePageIndex value)? changePageIndex,
+  }) {
+    return changePageIndex?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetHomeMovies value)? getHomeMovies,
+    TResult Function(ChangePageIndex value)? changePageIndex,
+    required TResult orElse(),
+  }) {
+    if (changePageIndex != null) {
+      return changePageIndex(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangePageIndex implements MoviesEvent {
+  const factory ChangePageIndex(final int newPageIndex) = _$ChangePageIndex;
+
+  int get newPageIndex;
+  @JsonKey(ignore: true)
+  _$$ChangePageIndexCopyWith<_$ChangePageIndex> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MoviesState {
   List<MovieData> get moviesList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MoviesStateCopyWith<MoviesState> get copyWith =>
@@ -187,7 +344,11 @@ abstract class $MoviesStateCopyWith<$Res> {
           MoviesState value, $Res Function(MoviesState) then) =
       _$MoviesStateCopyWithImpl<$Res, MoviesState>;
   @useResult
-  $Res call({List<MovieData> moviesList, bool isLoading, bool hasError});
+  $Res call(
+      {List<MovieData> moviesList,
+      bool isLoading,
+      bool hasError,
+      int currentPage});
 }
 
 /// @nodoc
@@ -206,6 +367,7 @@ class _$MoviesStateCopyWithImpl<$Res, $Val extends MoviesState>
     Object? moviesList = null,
     Object? isLoading = null,
     Object? hasError = null,
+    Object? currentPage = null,
   }) {
     return _then(_value.copyWith(
       moviesList: null == moviesList
@@ -220,6 +382,10 @@ class _$MoviesStateCopyWithImpl<$Res, $Val extends MoviesState>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -231,7 +397,11 @@ abstract class _$$_InitialCopyWith<$Res> implements $MoviesStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MovieData> moviesList, bool isLoading, bool hasError});
+  $Res call(
+      {List<MovieData> moviesList,
+      bool isLoading,
+      bool hasError,
+      int currentPage});
 }
 
 /// @nodoc
@@ -247,6 +417,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? moviesList = null,
     Object? isLoading = null,
     Object? hasError = null,
+    Object? currentPage = null,
   }) {
     return _then(_$_Initial(
       moviesList: null == moviesList
@@ -261,6 +432,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -271,7 +446,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial(
       {required final List<MovieData> moviesList,
       required this.isLoading,
-      required this.hasError})
+      required this.hasError,
+      required this.currentPage})
       : _moviesList = moviesList;
 
   final List<MovieData> _moviesList;
@@ -286,10 +462,12 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   final bool isLoading;
   @override
   final bool hasError;
+  @override
+  final int currentPage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MoviesState(moviesList: $moviesList, isLoading: $isLoading, hasError: $hasError)';
+    return 'MoviesState(moviesList: $moviesList, isLoading: $isLoading, hasError: $hasError, currentPage: $currentPage)';
   }
 
   @override
@@ -299,7 +477,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       ..add(DiagnosticsProperty('type', 'MoviesState'))
       ..add(DiagnosticsProperty('moviesList', moviesList))
       ..add(DiagnosticsProperty('isLoading', isLoading))
-      ..add(DiagnosticsProperty('hasError', hasError));
+      ..add(DiagnosticsProperty('hasError', hasError))
+      ..add(DiagnosticsProperty('currentPage', currentPage));
   }
 
   @override
@@ -312,12 +491,18 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.hasError, hasError) ||
-                other.hasError == hasError));
+                other.hasError == hasError) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_moviesList), isLoading, hasError);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_moviesList),
+      isLoading,
+      hasError,
+      currentPage);
 
   @JsonKey(ignore: true)
   @override
@@ -330,7 +515,8 @@ abstract class _Initial implements MoviesState {
   const factory _Initial(
       {required final List<MovieData> moviesList,
       required final bool isLoading,
-      required final bool hasError}) = _$_Initial;
+      required final bool hasError,
+      required final int currentPage}) = _$_Initial;
 
   @override
   List<MovieData> get moviesList;
@@ -338,6 +524,8 @@ abstract class _Initial implements MoviesState {
   bool get isLoading;
   @override
   bool get hasError;
+  @override
+  int get currentPage;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>

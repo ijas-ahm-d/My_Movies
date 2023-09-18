@@ -9,13 +9,11 @@ import 'package:dio/dio.dart';
 
 @LazySingleton(as: MovieService)
 class MoviesImplementation implements MovieService {
- 
- 
   @override
   Future<Either<MainFailure, MoviesResp>> getMovieData({int? page}) async {
     try {
       final response =
-          await Dio(BaseOptions()).get(ApiEndPoints.moviesWithPage(1));
+          await Dio(BaseOptions()).get(ApiEndPoints.moviesWithPage(page));
       if (response.statusCode == 200 || response.statusCode == 201) {
         log("success");
         final result = MoviesResp.fromJson(response.data);

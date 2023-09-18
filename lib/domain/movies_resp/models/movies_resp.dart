@@ -3,14 +3,13 @@ part 'movies_resp.g.dart';
 
 @JsonSerializable()
 class MoviesResp {
-
   @JsonKey(name: 'page')
   int? page;
 
   @JsonKey(name: 'results')
   List<MovieData> results;
 
-  MoviesResp({this.page, this.results=const []});
+  MoviesResp({this.page, this.results = const []});
 
   factory MoviesResp.fromJson(Map<String, dynamic> json) {
     return _$MoviesRespFromJson(json);
@@ -18,6 +17,7 @@ class MoviesResp {
 
   Map<String, dynamic> toJson() => _$MoviesRespToJson(this);
 }
+
 @JsonSerializable()
 class MovieData {
   @JsonKey(name: 'adult')

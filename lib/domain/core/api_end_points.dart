@@ -6,5 +6,7 @@ class ApiEndPoints {
     return "$kBaseURL/trending/movie/day?language=en-US&api_key=$apikey&page=$pageIndex";
   }
 
-  // static const movies =
+  static String detailsWithId(int? id) {
+    return "$kBaseURL/movie/$id?api_key=$apikey";
+  }
 }
