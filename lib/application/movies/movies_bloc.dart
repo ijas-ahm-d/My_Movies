@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_movies/domain/core/failures/main_failure.dart';
-import 'package:my_movies/domain/data_provider/response/api_response.dart';
+import 'package:my_movies/domain/data_provider/app_exceptions.dart';
 import 'package:my_movies/domain/movies_resp/models/movies_resp.dart';
 import 'package:my_movies/domain/movies_resp/movies_service.dart';
 import 'package:injectable/injectable.dart';
@@ -38,13 +38,39 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
         final newState = result.fold(
           (MainFailure failure) {
-            ApiResponse.error(failure.toString());
-            return MoviesState(
-              moviesList: [],
-              isLoading: false,
-              hasError: true,
-              currentPage: _currentPage ?? 1,
-            );
+            if (failure is FetchDataExceptions) {
+              return MoviesState(
+                errorMessage: "Data Fetching Problem",
+                moviesList: [],
+                isLoading: false,
+                hasError: true,
+                currentPage: _currentPage ?? 1,
+              );
+            } else if (failure is UnauthorizedExeptions) {
+              return MoviesState(
+                errorMessage: failure.toString(),
+                moviesList: [],
+                isLoading: false,
+                hasError: true,
+                currentPage: _currentPage ?? 1,
+              );
+            } else if (failure is BadRequestExeptions) {
+              return MoviesState(
+                errorMessage: failure.toString(),
+                moviesList: [],
+                isLoading: false,
+                hasError: true,
+                currentPage: _currentPage ?? 1,
+              );
+            } else {
+              return MoviesState(
+                errorMessage: failure.toString(),
+                moviesList: [],
+                isLoading: false,
+                hasError: true,
+                currentPage: _currentPage ?? 1,
+              );
+            }
           },
           (MoviesResp resp) {
             return MoviesState(
@@ -65,8 +91,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       final result = await _moviesService.getMovieData(page: _currentPage ?? 1);
       final newState = result.fold(
         (MainFailure failure) {
-          ApiResponse.error(failure.toString());
           return MoviesState(
+            errorMessage: failure.toString(),
             moviesList: [],
             isLoading: false,
             hasError: true,

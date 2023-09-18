@@ -331,6 +331,7 @@ mixin _$MoviesState {
   List<MovieData> get moviesList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -348,6 +349,7 @@ abstract class $MoviesStateCopyWith<$Res> {
       {List<MovieData> moviesList,
       bool isLoading,
       bool hasError,
+      String? errorMessage,
       int currentPage});
 }
 
@@ -367,6 +369,7 @@ class _$MoviesStateCopyWithImpl<$Res, $Val extends MoviesState>
     Object? moviesList = null,
     Object? isLoading = null,
     Object? hasError = null,
+    Object? errorMessage = freezed,
     Object? currentPage = null,
   }) {
     return _then(_value.copyWith(
@@ -382,6 +385,10 @@ class _$MoviesStateCopyWithImpl<$Res, $Val extends MoviesState>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -401,6 +408,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $MoviesStateCopyWith<$Res> {
       {List<MovieData> moviesList,
       bool isLoading,
       bool hasError,
+      String? errorMessage,
       int currentPage});
 }
 
@@ -417,6 +425,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? moviesList = null,
     Object? isLoading = null,
     Object? hasError = null,
+    Object? errorMessage = freezed,
     Object? currentPage = null,
   }) {
     return _then(_$_Initial(
@@ -432,6 +441,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -447,6 +460,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       {required final List<MovieData> moviesList,
       required this.isLoading,
       required this.hasError,
+      this.errorMessage,
       required this.currentPage})
       : _moviesList = moviesList;
 
@@ -463,11 +477,13 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   @override
   final bool hasError;
   @override
+  final String? errorMessage;
+  @override
   final int currentPage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MoviesState(moviesList: $moviesList, isLoading: $isLoading, hasError: $hasError, currentPage: $currentPage)';
+    return 'MoviesState(moviesList: $moviesList, isLoading: $isLoading, hasError: $hasError, errorMessage: $errorMessage, currentPage: $currentPage)';
   }
 
   @override
@@ -478,6 +494,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       ..add(DiagnosticsProperty('moviesList', moviesList))
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('hasError', hasError))
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
       ..add(DiagnosticsProperty('currentPage', currentPage));
   }
 
@@ -492,6 +509,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
                 other.isLoading == isLoading) &&
             (identical(other.hasError, hasError) ||
                 other.hasError == hasError) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage));
   }
@@ -502,6 +521,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
       const DeepCollectionEquality().hash(_moviesList),
       isLoading,
       hasError,
+      errorMessage,
       currentPage);
 
   @JsonKey(ignore: true)
@@ -516,6 +536,7 @@ abstract class _Initial implements MoviesState {
       {required final List<MovieData> moviesList,
       required final bool isLoading,
       required final bool hasError,
+      final String? errorMessage,
       required final int currentPage}) = _$_Initial;
 
   @override
@@ -524,6 +545,8 @@ abstract class _Initial implements MoviesState {
   bool get isLoading;
   @override
   bool get hasError;
+  @override
+  String? get errorMessage;
   @override
   int get currentPage;
   @override

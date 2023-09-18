@@ -314,6 +314,7 @@ mixin _$DetailsState {
   List<DetailsResp> get details => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -327,7 +328,12 @@ abstract class $DetailsStateCopyWith<$Res> {
           DetailsState value, $Res Function(DetailsState) then) =
       _$DetailsStateCopyWithImpl<$Res, DetailsState>;
   @useResult
-  $Res call({List<DetailsResp> details, bool isLoading, bool hasError, int id});
+  $Res call(
+      {List<DetailsResp> details,
+      bool isLoading,
+      bool hasError,
+      String? errorMessage,
+      int id});
 }
 
 /// @nodoc
@@ -346,6 +352,7 @@ class _$DetailsStateCopyWithImpl<$Res, $Val extends DetailsState>
     Object? details = null,
     Object? isLoading = null,
     Object? hasError = null,
+    Object? errorMessage = freezed,
     Object? id = null,
   }) {
     return _then(_value.copyWith(
@@ -361,6 +368,10 @@ class _$DetailsStateCopyWithImpl<$Res, $Val extends DetailsState>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -377,7 +388,12 @@ abstract class _$$_InitialCopyWith<$Res>
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<DetailsResp> details, bool isLoading, bool hasError, int id});
+  $Res call(
+      {List<DetailsResp> details,
+      bool isLoading,
+      bool hasError,
+      String? errorMessage,
+      int id});
 }
 
 /// @nodoc
@@ -393,6 +409,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? details = null,
     Object? isLoading = null,
     Object? hasError = null,
+    Object? errorMessage = freezed,
     Object? id = null,
   }) {
     return _then(_$_Initial(
@@ -408,6 +425,10 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -423,6 +444,7 @@ class _$_Initial implements _Initial {
       {required final List<DetailsResp> details,
       required this.isLoading,
       required this.hasError,
+      this.errorMessage,
       required this.id})
       : _details = details;
 
@@ -439,11 +461,13 @@ class _$_Initial implements _Initial {
   @override
   final bool hasError;
   @override
+  final String? errorMessage;
+  @override
   final int id;
 
   @override
   String toString() {
-    return 'DetailsState(details: $details, isLoading: $isLoading, hasError: $hasError, id: $id)';
+    return 'DetailsState(details: $details, isLoading: $isLoading, hasError: $hasError, errorMessage: $errorMessage, id: $id)';
   }
 
   @override
@@ -456,12 +480,19 @@ class _$_Initial implements _Initial {
                 other.isLoading == isLoading) &&
             (identical(other.hasError, hasError) ||
                 other.hasError == hasError) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_details), isLoading, hasError, id);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_details),
+      isLoading,
+      hasError,
+      errorMessage,
+      id);
 
   @JsonKey(ignore: true)
   @override
@@ -475,6 +506,7 @@ abstract class _Initial implements DetailsState {
       {required final List<DetailsResp> details,
       required final bool isLoading,
       required final bool hasError,
+      final String? errorMessage,
       required final int id}) = _$_Initial;
 
   @override
@@ -483,6 +515,8 @@ abstract class _Initial implements DetailsState {
   bool get isLoading;
   @override
   bool get hasError;
+  @override
+  String? get errorMessage;
   @override
   int get id;
   @override

@@ -44,7 +44,7 @@ class Details extends StatelessWidget {
               expandedTitleScale: 2.9,
               background: Image.network(
                 "$imgAppentUrl$img",
-                fit: BoxFit.contain,
+                fit: BoxFit.cover,
                 filterQuality: FilterQuality.high,
               ),
             ),

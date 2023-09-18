@@ -11,6 +11,7 @@ class TextStyles {
       color: clr,
     );
   }
+
   static roboto(double size, FontWeight fweight, Color clr) {
     return GoogleFonts.robotoMono(
       letterSpacing: 0.5,
@@ -23,7 +24,7 @@ class TextStyles {
   static final headline = GoogleFonts.robotoMono(
     fontSize: 30,
     letterSpacing: 3,
-    color: AppColors.kBlack,
+    color: AppColors.appColor,
     fontWeight: FontWeight.bold,
   );
 }

@@ -1,9 +1,7 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_movies/application/movies/movies_bloc.dart';
 import 'package:my_movies/core/colors.dart';
-import 'package:my_movies/core/constants.dart';
 import 'package:my_movies/presentation/home/components/home_app_bar.dart';
 import 'package:my_movies/presentation/home/components/home_pagination.dart';
 import 'package:my_movies/presentation/home/components/home_shimmer.dart';
@@ -19,37 +17,47 @@ class HomeScreen extends StatelessWidget {
     });
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: AppColors.appColor,
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(size.height * 0.07),
-            child: const HomeAppBar()),
-        body: Column(
-          children: [
-            const HomePagination(),
-            Expanded(
-              child: BlocBuilder<MoviesBloc, MoviesState>(
-                builder: (context, state) {
-                  if (state.isLoading) {
-                    return const HomeShimmer();
-                  } else if (state.hasError) {
-                    return const Text("error occured");
-                  } else {
-                    return ListView.builder(
-                      physics: const ScrollPhysics(),
-                      itemCount: state.moviesList.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final movie = state.moviesList[index].originalTitle;
-                        final film = state.moviesList[index];
-                        final img = "$imgAppentUrl${film.posterPath}";
-                        log(movie.toString());
-                        return MovieCard(img: img, movie: movie, film: film,index: index,);
-                      },
-                    );
-                  }
-                },
-              ),
+      backgroundColor: AppColors.kBlack,
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(size.height * 0.07),
+          child: const HomeAppBar()),
+      body: Column(
+        children: [
+          const HomePagination(),
+          Expanded(
+            child: BlocBuilder<MoviesBloc, MoviesState>(
+              builder: (context, state) {
+                if (state.isLoading) {
+                  return const HomeShimmer();
+                } else if (state.hasError) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Center(
+                        child: Text(
+                      state.errorMessage.toString(),
+                      style: const TextStyle(
+                        color: AppColors.kwhite,
+                      ),
+                    )),
+                  );
+                } else {
+                  return ListView.builder(
+                    physics: const ScrollPhysics(),
+                    itemCount: state.moviesList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final film = state.moviesList[index];
+                      return MovieCard(
+                        film: film,
+                        index: index,
+                      );
+                    },
+                  );
+                }
+              },
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }

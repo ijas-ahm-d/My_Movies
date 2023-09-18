@@ -2,25 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:my_movies/core/colors.dart';
+import 'package:my_movies/core/constants.dart';
+import 'package:my_movies/core/routes/navigations.dart';
 import 'package:my_movies/domain/movies_resp/models/movies_resp.dart';
 import 'package:my_movies/presentation/components/special_button.dart';
-import 'package:my_movies/presentation/details/detail_screen.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
     super.key,
-    required this.img,
-    required this.movie,
+    
+   
     required this.film,
     required this.index,
   });
   final int index;
-  final String img;
-  final String? movie;
+
+
   final MovieData film;
 
   @override
   Widget build(BuildContext context) {
+     final img = "$imgAppentUrl${film.posterPath}";
     final DateTime dateTime = DateTime.parse(film.releaseDate ?? "2023-09-18");
     final String year = DateFormat('y').format(dateTime);
     final size = MediaQuery.of(context).size;
@@ -31,17 +33,11 @@ class MovieCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return DetailScreen(
-                  newId: film.id ?? 346698,
-                  index: index,
-                );
-              },
-            ),
-          );
+          Navigator.pushNamed(context, Navigations.detailsScreen, arguments: {
+            'newId': film.id ?? 346698,
+            'index': index,
+          });
+
         },
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -80,7 +76,7 @@ class MovieCard extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        "$movie",
+                        "${film.originalTitle}",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,

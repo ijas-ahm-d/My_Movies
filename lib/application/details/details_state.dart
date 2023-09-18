@@ -6,6 +6,7 @@ class DetailsState with _$DetailsState {
     required List<DetailsResp> details,
     required bool isLoading,
     required bool hasError,
+    String? errorMessage,
     required int id,
   }) = _Initial;
 
@@ -14,5 +15,6 @@ class DetailsState with _$DetailsState {
         isLoading: false,
         hasError: false,
         id: 346698,
+         errorMessage: null,
       );
 }

@@ -6,6 +6,7 @@ class MoviesState with _$MoviesState {
     required List<MovieData> moviesList,
     required bool isLoading,
     required bool hasError,
+    String? errorMessage,
     required int currentPage,
   }) = _Initial;
 
@@ -13,6 +14,7 @@ class MoviesState with _$MoviesState {
         moviesList: [],
         isLoading: false,
         hasError: false,
+        errorMessage: null,
         currentPage: 1,
       );
 }

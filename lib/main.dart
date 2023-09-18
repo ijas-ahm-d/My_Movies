@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_movies/application/details/details_bloc.dart';
-import 'package:my_movies/application/movies/movies_bloc.dart';
 import 'package:my_movies/core/colors.dart';
+import 'package:my_movies/core/providers/providers_list.dart';
+import 'package:my_movies/core/routes/navigations.dart';
 import 'package:my_movies/domain/core/dependency_injection/injectable.dart';
-import 'package:my_movies/presentation/splash/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
@@ -18,14 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<MoviesBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<DetailsBloc>(),
-        ),
-      ],
+      providers: ProviderList.provider,
       child: MaterialApp(
         title: 'MY MOVIES',
         debugShowCheckedModeBanner: false,
@@ -34,7 +26,9 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.kwhite,
           useMaterial3: true,
         ),
-        home: const SplashScreen(),
+        routes: Navigations.routes(),
+        initialRoute: Navigations.splashScreen,
+        navigatorKey: Navigations.navigatorKey,
       ),
     );
   }

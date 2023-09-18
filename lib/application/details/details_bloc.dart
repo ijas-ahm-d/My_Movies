@@ -31,6 +31,7 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
           (MainFailure failure) {
             ApiResponse.error(failure.toString());
             return DetailsState(
+              errorMessage: failure.toString(),
               details: [],
               isLoading: false,
               hasError: true,
@@ -59,6 +60,7 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
           (MainFailure failure) {
             ApiResponse.error(failure.toString());
             return DetailsState(
+              errorMessage: failure.toString(),
               details: [],
               isLoading: false,
               hasError: true,

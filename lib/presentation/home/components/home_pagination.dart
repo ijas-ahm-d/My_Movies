@@ -23,7 +23,7 @@ class HomePagination extends StatelessWidget {
               );
             },
             pageTotal: 500,
-            colorPrimary: AppColors.kBlack,
+            colorPrimary: AppColors.appColor,
             colorSub: AppColors.kwhite,
           )
         ],

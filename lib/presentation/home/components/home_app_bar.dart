@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import 'package:my_movies/core/colors.dart';
@@ -11,7 +9,7 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.appColor,
+      backgroundColor: AppColors.kBlack,
       elevation: 0,
       leading: const Icon(
         Icons.person,
